@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3f8f1f8a-ca31-4e01-9860-ce644dc6bf2c": {
+      "ProjectGuid": "3f8f1f8a-ca31-4e01-9860-ce644dc6bf2c",
+      "DisplayName": "PayrollMobile",
+      "ColorIndex": 0
+    },
+    "d1c3c6b8-3316-4337-885e-e3889ab28a4a": {
+      "ProjectGuid": "d1c3c6b8-3316-4337-885e-e3889ab28a4a",
+      "DisplayName": "PayrollMobile.Android",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

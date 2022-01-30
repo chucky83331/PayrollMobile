@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="PayrollMobile.MainPage">
+
+    <StackLayout Margin="20,35,20,20">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "100"/>
+                <RowDefinition Height = "40"/>
+                <RowDefinition Height = "40"/>
+                <RowDefinition Height = "60"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<Date Worked-->
+            <Label Text="Date Worked" TextDecorations="Underline"
+               FontSize="Medium" TextColor="Blue" TabIndex="1"
+                    BackgroundColor="DarkGray"
+                    HorizontalTextAlignment="Center"
+                    Grid.Row="0" Grid.Column="1"
+                    WidthRequest="200"  HorizontalOptions="End"/>
+            <DatePicker x:Name="datePicker" Format="d"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   WidthRequest="100" HeightRequest="60"
+                   HorizontalOptions="CenterAndExpand" 
+                   VerticalOptions="Center"
+                   Grid.Row="0" Grid.Column="1"/>
+
+<!--<Shift Type-->
+            <Picker x:Name="picker1" Title ="Shift Type"
+                    Grid.Row="1" Grid.Column="0" 
+                    VerticalOptions="Center" TabIndex="2"
+                    BackgroundColor="DarkGray" FontAttributes="Bold"
+                    FontSize="Small"
+                    WidthRequest="200"  HorizontalOptions="End"
+                    Unfocused="Picker1_Unfocused">
+                <Picker.Items>
+                    <x:String>Regular Hours</x:String>
+                    <x:String>Stat 1.5</x:String>
+                    <x:String>Stat 2.0</x:String>
+                    <x:String>Over Time 1.5</x:String>
+                    <x:String>Over Time 2.0</x:String>
+                    <x:String>Sick Day</x:String>
+                    <x:String>Vacation Pay</x:String>
+                </Picker.Items>
+            </Picker>
+ <!--Shift Time>-->
+            <Picker x:Name="picker2" Title ="Shift Time"
+                    Grid.Row="1" Grid.Column="1"
+                    VerticalOptions="Center" TabIndex="3"
+                    BackgroundColor="DarkGray" FontAttributes="Bold"
+                    FontSize="Small"
+                    WidthRequest="200"  HorizontalOptions="End">
+                <Picker.Items>
+                    <x:String>Morning</x:String>
+                    <x:String>Evening</x:String>
+                    <x:String>Night Shift</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry x:Name="rateEntry"
+               Placeholder="Enter Rate" 
+               BackgroundColor="DarkGray"
+               Grid.Row="1" Grid.Column="2"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="Start"/>
+            <Entry x:Name="hrsWorkEntry"
+               Placeholder="Hours Worked" TabIndex="4"
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="0"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="End"/>
+            <Entry x:Name="diffEntry" 
+               Placeholder="Enter Differential"
+               BackgroundColor="DarkGray" TabIndex="5"
+               Grid.Row="2" Grid.Column="1"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="Start"/>
+            <!--<Entry x:Name="totalEntry" 
+               Text="Total" 
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="2"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="End" />-->
+            <Label x:Name="totalEntry" Text="Total" 
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="2"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="End" />
+            <Button Text="Add to Database"
+                Grid.Row="3" Grid.Column="0"
+                Clicked="OnButtonClicked" 
+                    BorderColor="Green"
+                    BorderWidth="2" TabIndex="6"
+                    BackgroundColor="Yellow"/>
+            <Button Text="Update Record"
+                Grid.Row="3" Grid.Column="1"
+                Clicked="Button_Clicked"
+                    BackgroundColor="Yellow"
+                    BorderColor="Green"
+                    BorderWidth="2"/>
+            <Button Text="Delete Record"
+                Grid.Row="3" Grid.Column="2"
+                    BackgroundColor="Red"
+                    BorderColor="Black"
+                    BorderWidth="2"
+                Clicked="Button_Clicked_1"/>
+        </Grid>
+        <Label Text="================================================"
+               FontAttributes="Bold"
+               Grid.Row="0" Grid.Column="0"
+               BackgroundColor="Black"
+               HeightRequest="5"
+               WidthRequest="400" HorizontalOptions="End"/>
+<!--Displays selected items from database.-->
+        <CollectionView x:Name="CollectionView" SelectionMode="Single" 
+                        SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding WorkDate, StringFormat='{}{0:MM/dd/yyyy}'}"
+                               Grid.Row="4" Grid.Column="0"
+                               TextColor="Black"
+                               FontSize="Large"/>
+                        <Label Text="{Binding ShiftType}"
+                               Grid.Row="5" Grid.Column="0"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding ShiftTime}"
+                               Grid.Row="5" Grid.Column="1"
+                               FontSize="Medium"/>
+                        <Label x:Name="pick2" Text="{Binding Rate}"
+                               Grid.Row="5" Grid.Column="2"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding HrsWork}"
+                               Grid.Row="6" Grid.Column="0"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding Diff}"
+                               Grid.Row="6" Grid.Column="1"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding Total}"
+                               Grid.Row="7" Grid.Column="2"
+                               FontSize="Medium"/>
+                        <Label Text="{Binding GrandTotal}"
+                               Grid.Row="8" Grid.Column="1"
+                               FontSize="Medium"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
