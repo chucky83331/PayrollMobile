@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" xmlns:local="clr-namespace:PayrollMobile"
+             x:Class="PayrollMobile.MainPage">
+
+    <StackLayout Margin="20,35,20,20" BackgroundColor="DarkGray">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "45"/>
+                <RowDefinition Height = "40"/>
+                <RowDefinition Height = "40"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "110"/>
+                <ColumnDefinition Width = "110"/>
+                <ColumnDefinition Width = "60"/>
+                <ColumnDefinition Width = "60"/>
+
+            </Grid.ColumnDefinitions>
+
+            <!--<Date Worked-->
+            <Label Text="Date Worked" FontSize="Default" TextDecorations="Underline"
+                    TextColor="Black" TabIndex="1"
+                    BackgroundColor="DarkGray"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    Grid.Row="0" Grid.Column="0"/>
+            
+            <DatePicker x:Name="dateHead" Format="d"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   Grid.Row="0" Grid.Column="1"/>
+
+<!--<Shift Type-->
+            <Picker x:Name="picker1" Title ="Shift Type"
+                    Grid.Row="1" Grid.Column="0"
+                    VerticalOptions="Center" TabIndex="2"
+                    BackgroundColor="DarkGray" FontAttributes="Bold"
+                    FontSize="Small" 
+                    SelectedIndex="0" SelectedItem="0"
+                    WidthRequest="200"  HorizontalOptions="End">
+                <!--Unfocused="picker1_Unfocused">-->
+                <Picker.Items>
+                    <x:String>Regular Hours</x:String>
+                    <x:String>Stat 1.5</x:String>
+                    <x:String>Stat 2.0</x:String>
+                    <x:String>Over Time 1.5</x:String>
+                    <x:String>Over Time 2.0</x:String>
+                    <x:String>Sick Day</x:String>
+                    <x:String>Vacation Pay</x:String>
+                </Picker.Items>
+            </Picker>
+ <!--Shift Time>-->
+            <Picker x:Name="picker2" Title ="Shift Time"
+                    Grid.Row="1" Grid.Column="1"
+                    VerticalOptions="Center" TabIndex="3"
+                    BackgroundColor="DarkGray" FontAttributes="Bold"
+                    FontSize="Small"
+                    SelectedIndex="0" SelectedItem="0"
+                    WidthRequest="200"  HorizontalOptions="End">
+                <Picker.Items>
+                    <x:String>Morning</x:String>
+                    <x:String>Evening</x:String>
+                    <x:String>Night Shift</x:String>
+                </Picker.Items>
+            </Picker>
+            <Entry x:Name="rateEntry"
+               Placeholder="Enter Rate" 
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="0"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="Start"/>
+            <Entry x:Name="hrsWorkEntry"
+               Placeholder="Hours Worked" TabIndex="4"
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="1"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="End"/>
+            <Entry x:Name="diffEntry" 
+               Placeholder="Diff"
+               BackgroundColor="DarkGray" TabIndex="5"
+               Grid.Row="2" Grid.Column="2"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="Start"/>
+            <!--<Entry x:Name="totalEntry" 
+               Text="Total" 
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="2"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="End" />-->
+            <Label x:Name="totalEntry" Text="Total" 
+               BackgroundColor="DarkGray"
+               Grid.Row="2" Grid.Column="3"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+               FontSize="Small" FontAttributes="Bold"
+               WidthRequest="150" HorizontalOptions="End" />
+            </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "35"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "80"/>
+                <ColumnDefinition Width = "60"/>
+                <ColumnDefinition Width = "78"/>
+                <ColumnDefinition Width = "50"/>
+                <ColumnDefinition Width = "78"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Add"
+                Grid.Row="0" Grid.Column="0"
+                Clicked="OnButtonClicked" 
+                    BorderColor="Black"
+                    BorderWidth="3" TabIndex="4"
+                    BackgroundColor="Yellow"/>
+            <Button Text="Update"
+                Grid.Row="0" Grid.Column="2"
+                Clicked="Button_Clicked"
+                    BackgroundColor="Yellow"
+                    BorderColor="Black"
+                    BorderWidth="3"/>
+            <Button Text="Delete"
+                Grid.Row="0" Grid.Column="4"
+                    BackgroundColor="Red"
+                    BorderColor="Black"
+                    BorderWidth="3"
+                Clicked="Button_Clicked_1"/>
+        </Grid>
+        <Label Text="================================================"
+               FontAttributes="Bold"
+               Grid.Row="0" Grid.Column="0"
+               BackgroundColor="Black"
+               HeightRequest="5"
+               WidthRequest="400" HorizontalOptions="End"/>
+<!--Displays selected items from database.-->
+        <CollectionView x:Name="CollectionView" SelectionMode="Single" 
+                        SelectionChanged="CollectionView_SelectionChanged" >
+            <CollectionView.ItemTemplate>
+               <DataTemplate>
+                    <StackLayout>
+                        <!--<Syncfusion:SfDataGrid x:Name="dataGrid"
+                            ItemsSource="{Binding ShiftInfo}"
+                              BindingContext="{Binding WorkDate, StringFormat='{}{0:MM/dd/yyyy}'}" 
+                              Grid.Row="0" Grid.Column="0">-->
+                            <Label Text="{Binding WorkDate, StringFormat='{}{0:MM/dd/yyyy}'}"
+                               Grid.Row="0" Grid.Column="0"
+                               TextColor="Black"
+                               FontSize="Large"/>
+                            <Label Text="{Binding ShiftType}"
+                               Grid.Row="5" Grid.Column="0"
+                               FontSize="Medium"/>
+                            <Label Text="{Binding ShiftTime}"
+                               Grid.Row="5" Grid.Column="1"
+                               FontSize="Medium"/>
+                            <Label x:Name="pick2" Text="{Binding Rate}"
+                               Grid.Row="5" Grid.Column="2"
+                               FontSize="Medium"/>
+                            <Label Text="{Binding HrsWork}"
+                               Grid.Row="6" Grid.Column="0"
+                               FontSize="Medium"/>
+                            <Label Text="{Binding Diff}"
+                               Grid.Row="6" Grid.Column="1"
+                               FontSize="Medium"/>
+                            <Label Text="{Binding Total}"
+                               Grid.Row="7" Grid.Column="2"
+                               FontSize="Medium"/>
+                        <!--<Label Text="{Binding GrandTotal}"
+                               Grid.Row="8" Grid.Column="1"
+                               FontSize="Medium"/>
+                        </Syncfusion:SfDataGrid>-->
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
