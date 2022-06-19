@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using SQLite;
 
-namespace  PayrollMobile
+namespace PayrollMobile
 {
     public class Shift
     {
@@ -16,7 +16,8 @@ namespace  PayrollMobile
         public decimal Rate { get; set; }
         public decimal HrsWork { get; set; }
         public decimal Diff { get; set; }
-        public decimal Total => ((Rate + Diff) * HrsWork);
-        public decimal GrandTotal => (Total + Total);
+        public decimal Total => (Rate + Diff) * HrsWork;
+        public decimal GrandTotal => Total + Total;
+
     }
 }

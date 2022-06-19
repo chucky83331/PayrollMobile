@@ -1,36 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             xmlns:Syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms" xmlns:local="clr-namespace:PayrollMobile"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:scm="clr-namespace:Syncfusion.Data;assembly=Syncfusion.Data.Portable"
              x:Class="PayrollMobile.MainPage">
+    
+    <StackLayout Margin="10,15,10,10" BackgroundColor="SlateGray"  >
 
-    <StackLayout Margin="20,15,20,20" BackgroundColor="SlateGray">
+        <!-- Data Entry/Modify Section-->
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height = "40"/>
                 <RowDefinition Height = "40"/>
-
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width = "110"/>
                 <ColumnDefinition Width = "110"/>
-                <ColumnDefinition Width = "75"/>
-                <ColumnDefinition Width = "80"/>
+                <ColumnDefinition Width = "95"/>
+                <ColumnDefinition Width = "90"/>
             </Grid.ColumnDefinitions>
 
-            <!--<Date Worked-->
-            <!--<Label Text="Date Worked" FontSize="Default" TextDecorations="Underline"
-                    TextColor="Black" TabIndex="1"
-                    BackgroundColor="White"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
-                    Grid.Row="0" Grid.Column="0"/>-->
-
             <DatePicker x:Name="dateHead" Format="d"
-                   FontAttributes="Bold"
-                   FontSize="Medium" BackgroundColor="White"
+                   FontAttributes="Bold" Margin="10,2,-5,-2"
+                   FontSize="Small" BackgroundColor="White"
                    Grid.Row="0" Grid.Column="0"/>
 
             <!--<Shift Type-->
@@ -38,7 +30,7 @@
                     Grid.Row="0" Grid.Column="1"
                     VerticalOptions="Center" TabIndex="2"
                     BackgroundColor="White" FontAttributes="Bold"
-                    FontSize="Small" 
+                    FontSize="Small" Margin="25,1,-40,-2"
                     SelectedIndex="0" SelectedItem="0"
                     WidthRequest="200"  HorizontalOptions="End"
                     Unfocused="picker1_Unfocused">
@@ -58,7 +50,7 @@
                     Grid.Row="0" Grid.Column="2"
                     VerticalOptions="Center" TabIndex="3"
                     BackgroundColor="White" FontAttributes="Bold"
-                    FontSize="Small" 
+                    FontSize="Small" Margin="58,1,-55,-2"
                     SelectedIndex="0" SelectedItem="0"
                     WidthRequest="200"  HorizontalOptions="End">
                 <Picker.Items>
@@ -67,11 +59,12 @@
                     <x:String>Night</x:String>
                 </Picker.Items>
             </Picker>
-            <Picker x:Name="picker3" Title ="Differential"
+            <!--Differential-->
+            <Picker x:Name="picker3" Title ="Diff"
                     Grid.Row="1" Grid.Column="2"
                     VerticalOptions="Center" TabIndex="3"
                     BackgroundColor="White" FontAttributes="Bold"
-                    FontSize="Small" 
+                    FontSize="Small" Margin="-15,1,25,-2"
                     SelectedIndex="0" SelectedItem="0"
                     WidthRequest="200"  HorizontalOptions="End">
                 <Picker.Items>
@@ -82,136 +75,140 @@
             </Picker>
             <Entry x:Name="rateEntry"
                Placeholder="Enter Rate" 
-               BackgroundColor="White"
+               BackgroundColor="White" Margin="10,1,25,-1"
                Grid.Row="1" Grid.Column="0"
                FontSize="Small" FontAttributes="Bold"
                WidthRequest="150" HorizontalOptions="Start"/>
             <Entry x:Name="hrsWorkEntry"
                Placeholder="Hours Worked" TabIndex="4"
-               BackgroundColor="White"
+               BackgroundColor="White" Margin="-15,1,25,-2"
                Grid.Row="1" Grid.Column="1"
                FontSize="Small" FontAttributes="Bold"
                WidthRequest="150" HorizontalOptions="End"/>
             <Entry x:Name="totalEntry" 
                Placeholder="Total"
-               BackgroundColor="White"
+               BackgroundColor="White" Margin="-15,1,40,-1"
                Grid.Row="1" Grid.Column="3"
                FontSize="Small" FontAttributes="Bold"
                WidthRequest="150" HorizontalOptions="End" />
-            <!--<Label x:Name="totalEntry" Text="Total" 
-               BackgroundColor="DarkGray"
-               Grid.Row="2" Grid.Column="3"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Start"
-               FontSize="Small" FontAttributes="Bold"
-               WidthRequest="150" HorizontalOptions="End" />-->
         </Grid>
+        <!-- Row of Buttons-->
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height = "40"/>
-            </Grid.RowDefinitions>
+             <Grid.RowDefinitions>
+                 <RowDefinition Height = "40"/>
+             </Grid.RowDefinitions>
 
-            <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width = "110"/>
-                    <ColumnDefinition Width = "145"/>
-                    <ColumnDefinition Width = "105"/>
-            </Grid.ColumnDefinitions>
+             <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width = "75"/>
+                 <ColumnDefinition Width = "105"/>
+                 <ColumnDefinition Width = "85"/>
+                 <ColumnDefinition Width = "90"/>
+             </Grid.ColumnDefinitions>
 
             <Button Text="Add"
                 Grid.Row="0" Grid.Column="0"
                 Clicked="OnButtonClicked" 
                     BorderColor="Black"
-                    BorderWidth="3" Margin="1"
+                    BorderWidth="3" Margin="8,1,1,1"
                     BackgroundColor="Yellow" HeightRequest="20" HorizontalOptions="Center"/>
             <Button Text="Update"
                 Grid.Row="0" Grid.Column="1"
                 Clicked="Button_Clicked"
-                    BackgroundColor="Yellow"
-                    BorderColor="Black"
-                    BorderWidth="3" Margin="10,1" HorizontalOptions="Center" Padding="10,0" IsVisible="true"/>
+                BackgroundColor="Yellow"
+                BorderColor="Black" 
+                BorderWidth="3" Margin="20,1,10,1" HorizontalOptions="Center" Padding="10,0" IsVisible="true"/>
             <Button Text="Delete"
                 Grid.Row="0" Grid.Column="2"
-                    BackgroundColor="Red"
-                    BorderColor="Black"
-                    BorderWidth="3" Margin="1"
+                BackgroundColor="Red"
+                BorderColor="Black"
+                BorderWidth="3" Margin="23,1,-15,1"
                 Clicked="Button_Clicked_1" HorizontalOptions="Center"/>
+            <Button Text="Exit"
+                Grid.Row="0" Grid.Column="3"
+                Clicked="Button_Clicked_2"
+                BackgroundColor="Yellow"
+                BorderColor="Black"
+                BorderWidth="3" Margin="32,1,-13,1" HorizontalOptions="Center" Padding="10,0" IsVisible="true"/>
         </Grid>
-
-        <Label Text="================================================"
-               FontAttributes="Bold"
-               Grid.Row="0" Grid.Column="0"
-               BackgroundColor="White"
-               HeightRequest="5"
-               WidthRequest="400" HorizontalOptions="End"/>
-        <!--Displays selected items from database.-->
-        <CollectionView x:Name="CollectionView" SelectionMode="Single"
-                        SelectionChanged="CollectionView_SelectionChanged" >
+            <!-- Black line seperating Header from List -->
+        <Grid>
+                <Label Text=""
+                    FontAttributes="Bold"
+                    Grid.Row="0" Grid.Column="0"
+                    BackgroundColor="Black"
+                    HeightRequest="5" 
+                    HorizontalOptions="Fill"/>
+        </Grid>
+            <!--Displays selected items from database.-->
+        <Grid>
+            <CollectionView x:Name="view" SelectionMode="Single" 
+                  SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
-                
-               <DataTemplate>
-                    <StackLayout>
-                        <Grid>
-                        <!--<Syncfusion:SfDataGrid x:Name="dataGrid"
-                            ItemsSource="{Binding ShiftInfo}"
-                              BindingContext="{Binding WorkDate, StringFormat='{}{0:MM/dd/yyyy}'}" 
-                              Grid.Row="0" Grid.Column="0">-->
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height = "20"/>
-                                <RowDefinition Height = "20"/>
-                            </Grid.RowDefinitions>
+                    <DataTemplate>
+                        <StackLayout>
+                            <!-- Data from Database Listing-->
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height = "23"/>
+                                    <RowDefinition Height = "20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width = "120"/>
+                                    <ColumnDefinition Width = "85"/>
+                                    <ColumnDefinition Width = "95"/>
+                                </Grid.ColumnDefinitions>
+ 
+                                <Label Text="{Binding WorkDate,StringFormat='{}{0:MM/dd/yyyy}'}" 
+                                   Grid.Row="0" Grid.Column="0" Margin="10,1,1,-2"
+                                   TextColor="#FAF6F6" FontSize="Medium"/>
+                                <Label Text="{Binding ShiftType}"
+                                   Grid.Row="0" Grid.Column="1"
+                                   FontSize="Medium" TabIndex="2"
+                                   FontAttributes="Bold" TextColor="#F6F0F0" />
+                                <Label Text="{Binding ShiftTime}"
+                                   Grid.Row="0" Grid.Column="2"
+                                   FontSize="Medium" TabIndex="3"
+                                   FontAttributes="Bold" TextColor="#F9F2F2" />
+                                <Label Text="{Binding Rate,StringFormat='{0:F2}'}"
+                                   Grid.Row="1" Grid.Column="0" Margin="10,1,1,-2"
+                                   FontSize="Medium" TextColor="#FCF7F7"
+                                   FontAttributes="Bold" />
+                                <Label Text="{Binding HrsWork}" 
+                                   Grid.Row="1" Grid.Column="1"
+                                   FontSize="Medium" TabIndex="4" TextColor="#F9F5F5"
+                                   FontAttributes="Bold" />
+                                <Label Text="{Binding Diff}"
+                                   Grid.Row="1" Grid.Column="2"
+                                   FontSize="Medium" TabIndex="5" TextColor="#FCF5F5"
+                                   FontAttributes="Bold" />
+                                <Label Text="{Binding Total,StringFormat='{0:C2}'}"
+                                   Grid.Row="1" Grid.Column="3"
+                                   FontSize="Medium" TextColor="#F7E8E8"
+                                   FontAttributes="Bold" />
+                                <!--<Label Text="{Binding GrandTotal}"
+                                    Grid.Row="8" Grid.Column="1"
+                                    FontSize="Medium"/>-->
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width = "120"/>
-                                <ColumnDefinition Width = "85"/>
-                                <ColumnDefinition Width = "70"/>
-                            </Grid.ColumnDefinitions> 
-
-                            <Label Text="{Binding WorkDate, StringFormat='{}{0:MM/dd/yyyy}'}"
-                               Grid.Row="0" Grid.Column="0" 
-                               TextColor="#FAF6F6" TabIndex="1"
-                               FontSize="Medium"/>
-                            <Label Text="{Binding ShiftType}"
-                               Grid.Row="0" Grid.Column="1"
-                               FontSize="Medium" TabIndex="2" TextColor="#F6F0F0"/>
-                            <Label Text="{Binding ShiftTime}"
-                               Grid.Row="0" Grid.Column="2"
-                               FontSize="Medium" TabIndex="3" 
-                               FontAttributes="Bold" TextColor="#F9F2F2"/>
-                            <Label x:Name="pick2" Text="{Binding Rate}"
-                               Grid.Row="1" Grid.Column="0"
-                               FontSize="Medium" TextColor="#FCF7F7" />
-                            <Label Text="{Binding HrsWork}"
-                               Grid.Row="1" Grid.Column="1"
-                               FontSize="Medium" TabIndex="4" TextColor="#F9F5F5"/>
-                            <Label Text="{Binding Diff}"
-                               Grid.Row="1" Grid.Column="2"
-                               FontSize="Medium" TabIndex="5" TextColor="#FCF5F5"/>
-                            <Label Text="{Binding Total}"
-                               Grid.Row="1" Grid.Column="3"
-                               FontSize="Medium" TextColor="#F7E8E8"/>
-                        </Grid>
-                        <!--The following adds header line between entries--> 
-                        <Grid>
+                            </Grid>
+                             <!--The following adds Labels between Records-->
+                            <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height = "20"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width = "370"/>
+                                    <ColumnDefinition Width = "390"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="   Rate                       Hours                  Diff                  Total  "
+                                <Label Text="     Rate                    Hours           Differential                 Daily Total"
                                   FontAttributes="Bold"
                                   Grid.Row="0" Grid.Column="0"
                                   BackgroundColor="White"
-                                  HeightRequest="2"
-                                  WidthRequest="400" HorizontalOptions="End"/>
+                                  HeightRequest="2" />
+                                
                             </Grid>
-                            <!--<Label Text="{Binding GrandTotal}"
-                               Grid.Row="8" Grid.Column="1"
-                               FontSize="Medium"/>-->
-                        <!--</Syncfusion:SfDataGrid>-->
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </StackLayout>
 </ContentPage>

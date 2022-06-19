@@ -1,5 +1,13 @@
 ﻿using System;
+using System.Data;
+using System.Linq;
 using Xamarin.Forms;
+using System.Text;
+using DocumentFormat.OpenXml.Spreadsheet;
+using System.Collections;
+using System.Collections.ObjectModel;
+using System.Windows;
+
 
 namespace PayrollMobile
 {
@@ -16,10 +24,11 @@ namespace PayrollMobile
         decimal rate1 = 25.83m;
         decimal rate2 = 38.745m;
         decimal rate3 = 51.66m;
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            CollectionView.ItemsSource = await App.Database.GetShiftAsync();
+            view.ItemsSource = await App.Database.GetShiftAsync();
         }
 
         // Add To Database
@@ -46,7 +55,7 @@ namespace PayrollMobile
                     Diff = Convert.ToDecimal(picker3.SelectedItem),
                     Rate = Convert.ToDecimal(rateEntry.Text),
                     HrsWork = Convert.ToDecimal(hrsWorkEntry.Text),
-                }) ; ;
+                }); ;
 
 
                 dateHead.Date = DateTime.Now;
@@ -56,13 +65,12 @@ namespace PayrollMobile
                 rateEntry.Text = string.Empty;
                 hrsWorkEntry.Text = string.Empty;
 
-                CollectionView.ItemsSource = await
+                view.ItemsSource = await
                     App.Database.GetShiftAsync();
-
-                //await Application.Current.MainPage.DisplayAlert("Start", $"{ picker1}\n, { picker2}\n, {picker1.Title}\n {picker2.Title}", "OK");
-
             }
+            Sort();
         }
+       
         // Refresh from List with selected record to edit.
         Shift lastSelection;
         public void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -111,7 +119,9 @@ namespace PayrollMobile
             rateEntry.Text = Convert.ToString(lastSelection.Rate);
             hrsWorkEntry.Text = Convert.ToString(lastSelection.HrsWork);
             totalEntry.Text = Convert.ToString(lastSelection.Total);
+            Sort();
         }
+
         // Update Record after Change
         async void Button_Clicked(object sender, EventArgs e)
         {
@@ -137,8 +147,8 @@ namespace PayrollMobile
                 //lastSelection.Total = Convert.ToDecimal(totalEntry.Text);
 
                 await App.Database.UpdateShiftAsync(lastSelection);
-                CollectionView.ItemsSource = await
-                    App.Database.GetShiftAsync();
+                view.ItemsSource = await
+                App.Database.GetShiftAsync();
 
                 dateHead.Date = DateTime.Now;
 
@@ -153,6 +163,7 @@ namespace PayrollMobile
                 hrsWorkEntry.Text = String.Empty;
                 totalEntry.Text = "0.00";
             }
+            Sort();
         }
         // Delete
         async void Button_Clicked_1(System.Object sender, System.EventArgs e)
@@ -161,7 +172,7 @@ namespace PayrollMobile
             {
                 await App.Database.DeleteShiftAsync(lastSelection);
 
-                CollectionView.ItemsSource = await
+                view.ItemsSource = await
                     App.Database.GetShiftAsync();
 
                 dateHead.Date = DateTime.Now;
@@ -177,15 +188,9 @@ namespace PayrollMobile
                 hrsWorkEntry.Text = String.Empty;
                 totalEntry.Text = "0.00";
             }
+            Sort();
         }
-        // Sort on Date Column
-        // ===================
-        //private void Sort()
-        //{
-        //    //CollectionView.Sort(CollectionView.ColumnDefinitionsProperty[2],
-        //    CollectionView.(CollectionView.ColumnDefinitionsProperty[2],
-        //        System.ComponentModel.ListSortDirection.Ascending;
-        //}
+
         private void picker1_Unfocused(object sender, FocusEventArgs e)
         {
             //await Application.Current.MainPage.DisplayAlert("Picker1 Unfocused", $"{picker1.Title}\n {picker1.SelectedItem}\n {picker1.ItemsSource}", "OK");
@@ -210,6 +215,20 @@ namespace PayrollMobile
                     rateEntry.Text = "0.00";
                 }
             }
+        }
+private void Sort()
+{
+            //var result_set = this.OrderBy(WD => WD);
+            //CollectionView.Sort(CollectionView.Columns[0], System.ComponentModel.ListSortDirection.Ascending);
+            //SortDescriptionCollection sdc = IListViewController."WD"].Items.SortDescriptions;
+            //ListSortDirection sortDirection = ListSortDirection.Ascending;
+            //CollectionView.Sort(CollectionView.Columns[2],
+            //    System.ComponentModel.ListSortDirection.Ascending);
+        }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
