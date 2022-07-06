@@ -13,12 +13,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Service\ShiftService.cs" />
+    <Compile Remove="ShiftInfo.cs" />
+    <Compile Remove="ViewModel\ShiftViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="shift.db" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Service\shift.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.16.0" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.6" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="6.0.6" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Syncfusion.Xamarin.SfDataForm" Version="20.1.0.60" />
-    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="20.1.0.60" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataForm" Version="20.2.0.36" />
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="20.2.0.36" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <PackageReference Include="System.Linq" Version="4.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
 </Project>

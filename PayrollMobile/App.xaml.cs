@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+
 
 namespace PayrollMobile
 {
@@ -12,6 +12,7 @@ namespace PayrollMobile
         {
             get
             {
+                
                 if (database == null)
                 {
                     database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "shift.db3"));

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
+using PayrollMobile;
 
 namespace PayrollMobile
 {
@@ -14,6 +16,7 @@ namespace PayrollMobile
         private string diff;
         private string hrsWork;
         private string total;
+        private string grandtotal;
 
         public string WorkDate
         {
@@ -78,8 +81,16 @@ namespace PayrollMobile
                 RaisePropertyChanged("Total");
             }
         }
-
-        public ShiftInfo(string workDate, string shiftType, string shiftTime, string rate, string diff, string hrsWork, string total)
+        public string GrandTotal
+        {
+            get { return grandtotal; }
+            set
+            {
+                this.grandtotal = value;
+                RaisePropertyChanged("GrandTotal");
+            }
+        }
+        public ShiftInfo(string workDate, string shiftType, string shiftTime, string rate, string diff, string hrsWork, string total, string grandtotal)
         {
             this.WorkDate = workDate;
             this.ShiftType = shiftType;
@@ -88,6 +99,7 @@ namespace PayrollMobile
             this.Diff = diff;
             this.HrsWork = hrsWork;
             this.Total = total;
+            this.grandtotal = grandtotal;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -97,7 +109,17 @@ namespace PayrollMobile
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
+
+        protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
+        {
+            if (!Equals(field, newValue))
+            {
+                field = newValue;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                return true;
+            }
+
+            return false;
+        }
     }
-
-
 }

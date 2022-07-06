@@ -1,48 +1,55 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using SQLite;
+using Xamarin.Forms;
+using Microsoft.Data.Sqlite;
+using System.Collections;
+using System;
 
 namespace PayrollMobile
 {
     public class Database
     {
-        private readonly SQLiteAsyncConnection _database;
+        private readonly SQLiteAsyncConnection db;
         public Database(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Shift>();
+            db = new SQLiteAsyncConnection(dbPath);
+            db.CreateTableAsync<Shift>();
         }
         // Show Blank Record
         public Task<List<Shift>> GetShiftAsync()
         {
-            return _database.Table<Shift>().ToListAsync();
+            return db.Table<Shift>().ToListAsync();
         }
         // Add to Database
         public Task<int> SaveShiftAsync(Shift shift)
         {
-            return _database.InsertAsync(shift);
+            return db.InsertAsync(shift);
         }
         // Change Record from Database
         public Task<int> UpdateShiftAsync(Shift shift)
         {
-            return _database.UpdateAsync(shift);
+            return db.UpdateAsync(shift);
         }
         // Delete Record
         public Task<int> DeleteShiftAsync(Shift shift)
         {
-            return _database.DeleteAsync(shift);
+            return db.DeleteAsync(shift);
         }
 
         //TODO 
-        //public Task<List<Shift>> QuerySubscribedAsync()
+        public Task<List<Shift>> QueryGrandTotalAsync()
+        {
+            return db.QueryAsync<Shift>("SELECT * FROM Shift ORDER BY WorkDate");
+        }
+        //public Task<List<Shift>> LinqNotGrandTotalAsync()
         //{
-        //    return _database.QueryAsync<Shift>("SELECT * FROM Person WHERE Subscribed = true");
+        //    return db.Table<Shift>().Where(p => p.GrandTotal < 10).ToListAsync();
         //}
-        //public Task<List<Shift>> LinqNotSubscribedAsync()
-        //{
-        //    return _database.Table<Shift>().Where(p => p.Subscribed == false).ToListAsync();
-        //}
+
+        internal IEnumerable GetShift()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

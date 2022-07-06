@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Linq;
 using SQLite;
+using System.ComponentModel;
 
 namespace PayrollMobile
+
 {
-    public class Shift
+    public class Shift : INotifyPropertyChanged
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public int Id { get; set; } 
         public DateTime WorkDate { get; set; }
+                
         public string ShiftType { get; set; }
         public string ShiftTime { get; set; }
         public decimal Rate { get; set; }
         public decimal HrsWork { get; set; }
         public decimal Diff { get; set; }
         public decimal Total => (Rate + Diff) * HrsWork;
-        public decimal GrandTotal => Total + Total;
+        public decimal CalTotal => CalTotal + Total;
 
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

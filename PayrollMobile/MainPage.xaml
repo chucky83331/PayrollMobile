@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:scm="clr-namespace:Syncfusion.Data;assembly=Syncfusion.Data.Portable"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:PayrollMobile"
              x:Class="PayrollMobile.MainPage">
-    
-    <StackLayout Margin="10,15,10,10" BackgroundColor="SlateGray"  >
+        <StackLayout Margin="10,15,10,10" BackgroundColor="SlateGray" >
 
         <!-- Data Entry/Modify Section-->
         <Grid >
@@ -35,13 +34,13 @@
                     WidthRequest="200"  HorizontalOptions="End"
                     Unfocused="picker1_Unfocused">
                 <Picker.Items>
-                    <x:String>Regular Hours</x:String>
+                    <x:String>Regular Hrs</x:String>
                     <x:String>Stat 1.5</x:String>
                     <x:String>Stat 2.0</x:String>
-                    <x:String>Over Time 1.5</x:String>
-                    <x:String>Over Time 2.0</x:String>
+                    <x:String>O/T 1.5</x:String>
+                    <x:String>O/T 2.0</x:String>
                     <x:String>Sick Day</x:String>
-                    <x:String>Vacation Pay</x:String>
+                    <x:String>Vacation</x:String>
                     <x:String>Day Off</x:String>
                 </Picker.Items>
             </Picker>
@@ -132,7 +131,7 @@
         </Grid>
             <!-- Black line seperating Header from List -->
         <Grid>
-                <Label Text=""
+                <Label Text="" 
                     FontAttributes="Bold"
                     Grid.Row="0" Grid.Column="0"
                     BackgroundColor="Black"
@@ -141,9 +140,10 @@
         </Grid>
             <!--Displays selected items from database.-->
         <Grid>
-            <CollectionView x:Name="view" SelectionMode="Single" 
-                  SelectionChanged="CollectionView_SelectionChanged">
-            <CollectionView.ItemTemplate>
+
+            <CollectionView x:Name="CV" SelectionMode="Single" ItemsSource="{Binding Source=Shift}"
+                  SelectionChanged="CV_SelectionChanged" >
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout>
                             <!-- Data from Database Listing-->
@@ -155,11 +155,11 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width = "120"/>
                                     <ColumnDefinition Width = "85"/>
-                                    <ColumnDefinition Width = "95"/>
+                                    <ColumnDefinition Width = "85"/>
                                 </Grid.ColumnDefinitions>
- 
+                                
                                 <Label Text="{Binding WorkDate,StringFormat='{}{0:MM/dd/yyyy}'}" 
-                                   Grid.Row="0" Grid.Column="0" Margin="10,1,1,-2"
+                                   Grid.Row="0" Grid.Column="0" Margin="10,1,1,-2" 
                                    TextColor="#FAF6F6" FontSize="Medium"/>
                                 <Label Text="{Binding ShiftType}"
                                    Grid.Row="0" Grid.Column="1"
@@ -178,18 +178,14 @@
                                    FontSize="Medium" TabIndex="4" TextColor="#F9F5F5"
                                    FontAttributes="Bold" />
                                 <Label Text="{Binding Diff}"
-                                   Grid.Row="1" Grid.Column="2"
+                                   Grid.Row="1" Grid.Column="2" 
                                    FontSize="Medium" TabIndex="5" TextColor="#FCF5F5"
                                    FontAttributes="Bold" />
                                 <Label Text="{Binding Total,StringFormat='{0:C2}'}"
                                    Grid.Row="1" Grid.Column="3"
                                    FontSize="Medium" TextColor="#F7E8E8"
-                                   FontAttributes="Bold" />
-                                <!--<Label Text="{Binding GrandTotal}"
-                                    Grid.Row="8" Grid.Column="1"
-                                    FontSize="Medium"/>-->
-
-                            </Grid>
+                                   FontAttributes="Bold" TabIndex="6"/>
+                                </Grid>
                              <!--The following adds Labels between Records-->
                             <Grid>
                                 <Grid.RowDefinitions>
@@ -198,17 +194,34 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width = "390"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="     Rate                    Hours           Differential                 Daily Total"
-                                  FontAttributes="Bold"
+                                <Label Text="     Rate                    Hours           Differential                Daily Total"
+                                  FontAttributes="Bold" 
                                   Grid.Row="0" Grid.Column="0"
                                   BackgroundColor="White"
                                   HeightRequest="2" />
-                                
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
+        <!--This is the Footer with Grand Total amount-->
+            
+        <StackLayout Margin="10,5,10,10" BackgroundColor="Black">
+           <Grid>
+             <Grid.RowDefinitions>
+                 <RowDefinition Height = "25"/>
+             </Grid.RowDefinitions>
+             <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width = "*"/>
+             </Grid.ColumnDefinitions>
+             <Label Text="Grand Total" Margin="80,0,0,0"
+               Grid.Row="0" Grid.Column="0"
+               FontSize="Medium" FontAttributes="Bold" TextColor="White"/>
+                <Label x:Name="GT" Text="{Binding CalTotal}"
+               Margin="95,1,10,-10" Grid.Row="0" Grid.Column="1"
+               FontSize="Medium" FontAttributes="Bold" TextColor="Red" BindingContext="this"/>
+           </Grid>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
