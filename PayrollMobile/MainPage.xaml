@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:PayrollMobile"
              x:Class="PayrollMobile.MainPage">
-        <StackLayout Margin="10,15,10,10" BackgroundColor="SlateGray" >
+  
+    <ContentPage.BindingContext>
+        <local:PayrollMobile/>
+    </ContentPage.BindingContext>
+    <StackLayout Margin="10,15,10,10" BackgroundColor="SlateGray" >
 
         <!-- Data Entry/Modify Section-->
         <Grid >

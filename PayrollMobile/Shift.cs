@@ -9,12 +9,12 @@ using System.ComponentModel;
 namespace PayrollMobile
 
 {
-    public class Shift : INotifyPropertyChanged
+    public class ContentPage
     {
         [PrimaryKey, AutoIncrement]
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public DateTime WorkDate { get; set; }
-                
+
         public string ShiftType { get; set; }
         public string ShiftTime { get; set; }
         public decimal Rate { get; set; }
@@ -23,6 +23,5 @@ namespace PayrollMobile
         public decimal Total => (Rate + Diff) * HrsWork;
         public decimal CalTotal => CalTotal + Total;
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
