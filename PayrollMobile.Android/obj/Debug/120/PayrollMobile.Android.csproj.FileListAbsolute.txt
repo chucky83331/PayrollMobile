@@ -1272,15 +1272,6 @@ D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollM
 D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollMobile.Android\obj\Debug\120\stamp\_GenerateJavaStubs.stamp
 D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollMobile.Android\obj\Debug\120\stamp\_GeneratePackageManagerJava.stamp
 D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollMobile.Android\obj\Debug\120\stamp\_ResolveLibraryProjectImports.stamp
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.Android.dll
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.Android.pdb
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile.apk
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile.aab
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile-Signed.aab
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile-Signed.apk
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile-Signed.apk.idsig
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.dll
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.pdb
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\MonoAndroid,Version=v12.0.AssemblyAttributes.cs
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\build.props
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\adb.props
@@ -1315,6 +1306,15 @@ D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\R.txt
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\R.cs.flag
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\PayrollMobile.Android.csproj.CoreCompileInputs.cache
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.Android.dll
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.Android.pdb
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile.apk
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile.aab
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile-Signed.aab
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile-Signed.apk
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\com.companyname.payrollmobile-Signed.apk.idsig
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.dll
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\bin\Debug\PayrollMobile.pdb
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\PayrollMobile.Android.csproj.CopyComplete
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\PayrollMobile.Android.dll
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\PayrollMobile.Android.pdb
@@ -1341,6 +1341,7 @@ D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\FormsViewGroup.dll
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\FormsViewGroup.pdb
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\Java.Interop.dll
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\Java.Interop.pdb
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\Mono.Android.dll
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\Mono.Android.pdb
 D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile.Android\obj\Debug\120\android\assets\Mono.Security.dll

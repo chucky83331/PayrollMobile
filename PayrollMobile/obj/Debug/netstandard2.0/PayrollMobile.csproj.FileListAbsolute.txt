@@ -28,21 +28,6 @@ D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollM
 D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\ref\PayrollMobile.dll
 D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.pdb
 D:\OneDrive\Visual Studio Programs\Visual Studio Projects\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.csproj.AssemblyReference.cache
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.deps.json
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.dll
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\ref\PayrollMobile.dll
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.pdb
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.csproj.AssemblyReference.cache
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.GeneratedMSBuildEditorConfig.editorconfig
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.AssemblyInfoInputs.cache
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.AssemblyInfo.cs
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.csproj.CoreCompileInputs.cache
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\XamlC.stamp
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.dll
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\ref\PayrollMobile.dll
-D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.pdb
 C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.deps.json
 C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.dll
 C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\ref\PayrollMobile.dll
@@ -58,3 +43,18 @@ C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\D
 C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.dll
 C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\ref\PayrollMobile.dll
 C:\Users\chas_\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.pdb
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.csproj.AssemblyReference.cache
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.AssemblyInfoInputs.cache
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.AssemblyInfo.cs
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.csproj.CoreCompileInputs.cache
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.dll
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\refint\PayrollMobile.dll
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\PayrollMobile.pdb
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.deps.json
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.dll
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\bin\Debug\netstandard2.0\PayrollMobile.pdb
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\XamlC.stamp
+D:\OneDrive\Visual Studio Programs\PayrollMobile\PayrollMobile\obj\Debug\netstandard2.0\ref\PayrollMobile.dll

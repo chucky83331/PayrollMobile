@@ -18,13 +18,13 @@ namespace PayrollMobile
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            CollectionView.ItemsSource = await App.Database.GetShiftAsync();
+            CV.ItemsSource = await App.Database.GetShiftAsync();
         }
 
         // Add To Database
         async void OnButtonClicked(object sender, EventArgs e)
         {
-            DateTime? date = datePicker.Date;
+            DateTime? date = dateHead.Date;
             if (date == null)
             {
                 this.Title = "No date";
@@ -44,18 +44,18 @@ namespace PayrollMobile
                     ShiftTime = Convert.ToString(picker2.SelectedItem),
                     Rate = Convert.ToDecimal(rateEntry.Text),
                     HrsWork = Convert.ToDecimal(hrsWorkEntry.Text),
-                    Diff = Convert.ToDecimal(diffEntry.Text),
+                    //Diff = Convert.ToDecimal(diffEntry.Text),
                 });
 
 
-                datePicker.Date = DateTime.Now;
+                dateHead.Date = DateTime.Now;
                 picker1.SelectedItem = Title;
                 picker2.SelectedItem = Title;
                 rateEntry.Text = string.Empty;
                 hrsWorkEntry.Text = string.Empty;
-                diffEntry.Text = string.Empty;
+                //diffEntry.Text = string.Empty;
 
-                CollectionView.ItemsSource = await
+                CV.ItemsSource = await
                     App.Database.GetShiftAsync();
 
                 //await Application.Current.MainPage.DisplayAlert("Start", $"{ picker1}\n, { picker2}\n, {picker1.Title}\n {picker2.Title}", "OK");
@@ -73,10 +73,10 @@ namespace PayrollMobile
             shiftTime = Convert.ToString(lastSelection.ShiftTime);
             picker2.Title = shiftTime;
 
-            datePicker.Date = Convert.ToDateTime(lastSelection.WorkDate);
+            dateHead.Date = Convert.ToDateTime(lastSelection.WorkDate);
             rateEntry.Text = Convert.ToString(lastSelection.Rate);
             hrsWorkEntry.Text = Convert.ToString(lastSelection.HrsWork);
-            diffEntry.Text = Convert.ToString(lastSelection.Diff);
+            //diffEntry.Text = Convert.ToString(lastSelection.Diff);
             totalEntry.Text = Convert.ToString(lastSelection.Total);
             //await Application.Current.MainPage.DisplayAlert("Refresh after Selection", $"{ picker1.SelectedItem}\n, { picker2.SelectedItem}\n, {picker1.Title}\n {picker2.Title}", "OK");
         }
@@ -97,8 +97,8 @@ namespace PayrollMobile
                     //picker1.Items = selectedItem;
                 }
 
-                lastSelection.WorkDate = Convert.ToDateTime(datePicker.Date);
-                datePicker.Date = Convert.ToDateTime(lastSelection.WorkDate);
+                lastSelection.WorkDate = Convert.ToDateTime(dateHead.Date);
+                dateHead.Date = Convert.ToDateTime(lastSelection.WorkDate);
                 picker1.Title = (string)picker1.SelectedItem;
                 lastSelection.ShiftType = lastSelection.ShiftType;
                 picker2.Title = (string)picker2.SelectedItem;
@@ -106,12 +106,12 @@ namespace PayrollMobile
 
                 lastSelection.Rate = Convert.ToDecimal(rateEntry.Text);
                 lastSelection.HrsWork = Convert.ToDecimal(hrsWorkEntry.Text);
-                lastSelection.Diff = Convert.ToDecimal(diffEntry.Text);
+                //lastSelection.Diff = Convert.ToDecimal(diffEntry.Text);
                 //lastSelection.Total = Convert.ToDecimal(totalEntry.Text);
 
                 //await Application.Current.MainPage.DisplayAlert("Update", $"{picker1.Title}\n {picker1.SelectedItem}\n {picker2.Title}\n {picker2.SelectedItem}", "OK");
 
-                datePicker.Date = DateTime.Now;
+                dateHead.Date = DateTime.Now;
 
                 shiftType = "Shift Type"; shiftTime = "Shift Time";
                 picker1.Title = shiftType;
@@ -120,12 +120,12 @@ namespace PayrollMobile
                 picker2.SelectedItem = shiftTime;
                 rateEntry.Text = String.Empty;
                 hrsWorkEntry.Text = String.Empty;
-                diffEntry.Text = String.Empty;
+                //diffEntry.Text = String.Empty;
                 totalEntry.Text = "0.00";
                 {
                 }
                 await App.Database.UpdateShiftAsync(lastSelection);
-                CollectionView.ItemsSource = await
+                CV.ItemsSource = await
                     App.Database.GetShiftAsync();
                 //await Application.Current.MainPage.DisplayAlert("After Update", $"{picker1.Title}\n {picker1.SelectedItem}\n {picker2.Title}\n {picker2.SelectedItem}", "OK");
             }
@@ -137,10 +137,10 @@ namespace PayrollMobile
             {
                 await App.Database.DeleteShiftAsync(lastSelection);
 
-                CollectionView.ItemsSource = await
+                CV.ItemsSource = await
                     App.Database.GetShiftAsync();
 
-                datePicker.Date = DateTime.Now;
+                dateHead.Date = DateTime.Now;
 
                 shiftType = "Shift Type"; shiftTime = "Shift Time";
                 picker1.Title = shiftType;
@@ -149,7 +149,7 @@ namespace PayrollMobile
                 picker2.SelectedItem = shiftTime;
                 rateEntry.Text = String.Empty;
                 hrsWorkEntry.Text = String.Empty;
-                diffEntry.Text = String.Empty;
+                //diffEntry.Text = String.Empty;
                 totalEntry.Text = "0.00";
             }
         }
@@ -174,6 +174,11 @@ namespace PayrollMobile
                     rateEntry.Text = Convert.ToString(rate3);
                 }
             }
+        }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+
         }
 
         //TODO This may be useful to do calculations with SQL Querys
